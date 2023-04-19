@@ -5,13 +5,33 @@ namespace PhonePadConverterTests
 {
     public class PhonePadConverterTests
     {
-        [Test]
-        public void PhonePadConverter_Acceptance_Criteria()
+        Program program = new Program();
+
+        [TearDown]
+        public void PhonePadConverter_TearDown()
         {
-            Assert.AreEqual(Program.OldPhonePad("33#"), "E");
-            Assert.AreEqual(Program.OldPhonePad("227*#"), "B");
-            Assert.AreEqual(Program.OldPhonePad("4433555 555666#"), "HELLO");
-            Assert.AreEqual(Program.OldPhonePad("8 88777444666*664#"), "TURING");
+            program.converter.clear();
+        }
+
+        [Test]
+        public void PhonePadConverter_Acceptance_Criteria1()
+        {
+            Assert.AreEqual(program.OldPhonePad("33#"), "E");
+        }
+        [Test]
+        public void PhonePadConverter_Acceptance_Criteria2()
+        {
+            Assert.AreEqual(program.OldPhonePad("227*#"), "B");
+        }
+        [Test]
+        public void PhonePadConverter_Acceptance_Criteria3()
+        {
+            Assert.AreEqual(program.OldPhonePad("4433555 555666#"), "HELLO");
+        }
+        [Test]
+        public void PhonePadConverter_Acceptance_Criteria4()
+        {
+            Assert.AreEqual(program.OldPhonePad("8 88777444666*664#"), "TURING");
         }
     }
 }
